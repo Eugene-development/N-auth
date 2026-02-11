@@ -20,6 +20,12 @@ return [
         'http://localhost:5040',
         'http://localhost:5174',
         'http://127.0.0.1:5174',
+        
+        // Production
+        'https://novostroy.org',
+        'https://www.novostroy.org',
+        'https://admin.novostroy.org',
+        'https://auth.novostroy.org',
     ]),
 
     'allowed_origins_patterns' => [],
