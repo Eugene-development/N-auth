@@ -99,15 +99,15 @@ mkdir -p /var/www/bootstrap/cache
 
 
 # Очищаем bootstrap cache принудительно
-# echo "🧹 Clearing bootstrap cache..."
-# rm -rf /var/www/bootstrap/cache/*
+echo "🧹 Clearing bootstrap cache..."
+rm -rf /var/www/bootstrap/cache/*.php
 
-# Переключаемся на пользователя laravel для выполнения artisan команд
-# echo "🧹 Clearing Laravel cache..."
-# su-exec laravel php artisan config:clear 2>/dev/null || echo "⚠️  Config clear failed, continuing..."
-# su-exec laravel php artisan cache:clear 2>/dev/null || echo "⚠️  Cache clear failed, continuing..."
-# su-exec laravel php artisan route:clear 2>/dev/null || echo "⚠️  Route clear failed, continuing..."
-# su-exec laravel php artisan view:clear 2>/dev/null || echo "⚠️  View clear failed, continuing..."
+# Очищаем Laravel кэши при старте контейнера
+echo "🧹 Clearing Laravel caches..."
+php artisan config:clear 2>/dev/null || echo "⚠️  Config clear failed, continuing..."
+php artisan cache:clear 2>/dev/null || echo "⚠️  Cache clear failed, continuing..."
+php artisan route:clear 2>/dev/null || echo "⚠️  Route clear failed, continuing..."
+php artisan view:clear 2>/dev/null || echo "⚠️  View clear failed, continuing..."
 
 
 # Устанавливаем правильные права
