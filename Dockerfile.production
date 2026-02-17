@@ -10,9 +10,9 @@ FROM php:8.4-fpm-alpine AS production
 # Install system dependencies and set timezone
 RUN apk add --no-cache \
     su-exec \
-    # tzdata \
-    # && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
-    # && echo "Europe/Moscow" > /etc/timezone \
+    tzdata \
+    && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
+    && echo "Europe/Moscow" > /etc/timezone \
     && docker-php-ext-install pdo pdo_mysql
 
 # Копируем скрипт в образ
