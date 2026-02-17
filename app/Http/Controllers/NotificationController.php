@@ -44,21 +44,21 @@ class NotificationController extends Controller
             $serviceTypeLabel = self::SERVICE_TYPE_LABELS[$request->service_type] ?? $request->service_type;
             
             // Get admin email from env
-            $adminEmail = config('app.admin_email', 'admin@novostroy.ru');
+            $adminEmail = env('ADMIN_EMAIL', 'info@novostroy.org');
             
             // Prepare email content
             $emailData = [
                 'service_type' => $serviceTypeLabel,
-                'name' => $request->name,
+                'client_name' => $request->name,
                 'phone' => $request->phone,
-                'message' => $request->message ?? 'Не указано',
+                'client_message' => $request->message ?? 'Не указано',
                 'source_url' => $request->source_url ?? 'Не указано',
                 'submitted_at' => now()->format('d.m.Y H:i:s'),
             ];
 
             // Send email
-            Mail::send('emails.service-request', $emailData, function ($mail) use ($adminEmail, $serviceTypeLabel) {
-                $mail->to($adminEmail)
+            Mail::send('emails.service-request', $emailData, function ($msg) use ($adminEmail, $serviceTypeLabel) {
+                $msg->to($adminEmail)
                     ->subject('Новая заявка: ' . $serviceTypeLabel);
             });
 

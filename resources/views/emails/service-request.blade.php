@@ -122,7 +122,7 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label">Имя клиента:</span>
-                    <span class="info-value">{{ $name }}</span>
+                    <span class="info-value">{{ $client_name }}</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">Телефон:</span>
@@ -136,10 +136,10 @@
                 </div>
             </div>
 
-            @if($message && $message !== 'Не указано')
+            @if($client_message && $client_message !== 'Не указано')
             <div class="message-block">
                 <h3>💬 Сообщение от клиента:</h3>
-                <p>{{ $message }}</p>
+                <p>{{ $client_message }}</p>
             </div>
             @endif
         </div>
