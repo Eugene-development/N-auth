@@ -139,7 +139,7 @@
             @if($client_message && $client_message !== 'Не указано')
             <div class="message-block">
                 <h3>💬 Сообщение от клиента:</h3>
-                <p>{{ $client_message }}</p>
+                <p>{!! nl2br(e($client_message)) !!}</p>
             </div>
             @endif
         </div>

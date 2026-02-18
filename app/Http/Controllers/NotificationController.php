@@ -20,6 +20,7 @@ class NotificationController extends Controller
         'furniture-project' => 'Проект мебели',
         'assembly' => 'Сборка мебели',
         'measurement' => 'Замер помещения',
+        'partnership' => 'Партнёрство',
     ];
 
     /**
@@ -34,7 +35,7 @@ class NotificationController extends Controller
             ]);
 
             $request->validate([
-                'service_type' => 'required|string|in:consultation,design-project,furniture-project,assembly,measurement',
+                'service_type' => 'required|string|in:consultation,design-project,furniture-project,assembly,measurement,partnership',
                 'name' => 'required|string|max:255',
                 'phone' => 'required|string|max:50',
                 'message' => 'nullable|string|max:2000',
