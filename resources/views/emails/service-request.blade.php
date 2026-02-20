@@ -131,6 +131,10 @@
                     </span>
                 </div>
                 <div class="info-row">
+                    <span class="info-label">Город:</span>
+                    <span class="info-value">{{ $city }}</span>
+                </div>
+                <div class="info-row">
                     <span class="info-label">Источник:</span>
                     <span class="info-value">{{ $source_url }}</span>
                 </div>

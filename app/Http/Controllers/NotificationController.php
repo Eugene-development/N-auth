@@ -40,6 +40,7 @@ class NotificationController extends Controller
                 'phone' => 'required|string|max:50',
                 'message' => 'nullable|string|max:2000',
                 'source_url' => 'nullable|string|max:500',
+                'city' => 'nullable|string|max:100',
             ]);
 
             $serviceTypeLabel = self::SERVICE_TYPE_LABELS[$request->service_type] ?? $request->service_type;
@@ -54,6 +55,7 @@ class NotificationController extends Controller
                 'phone' => $request->phone,
                 'client_message' => $request->message ?? 'Не указано',
                 'source_url' => $request->source_url ?? 'Не указано',
+                'city' => $request->city ?? 'Не указан',
                 'submitted_at' => now()->format('d.m.Y H:i:s'),
             ];
 
